@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="frags :: head"></head>
+<body>
+<div th:each="pr : ${productList}" class="product-entry">
+    <h3 th:text="${pr.name}">PRODUCT NAME</h3>
+    <p th:text="| Quantity in Stock: ${pr.quantity} |">QUANTITY</p>
+    <p th:text="| Price: $ ${pr.price} |">PRICE</p>
+    <img th:src="@{/img/__${pr.imageFileName}__}" th:alt="${pr.name}">
+    <br>
+    <button th:onclick="|document.location='@{/confirmation(id=${pr.id})}'|">Buy</button>
+
+
+</div>
+</body>
+</html>
